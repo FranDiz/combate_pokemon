@@ -1,3 +1,8 @@
+/**
+ * Clase Pokemon: Contiene la información de los pokemons
+ * @param tipo es de la clase Tipo
+ */
+
 class Pokemon (nombre:String, lore:String, tipo:Tipo, vida:Int){
     var nombre=nombre
     var lore=lore

@@ -1,7 +1,15 @@
 fun main(args: Array<String>) {
-    println("Hello World!")
+    val Charizard = Pokemon("Charmander", "Salamandra llameante", Tipo("fuego"),  300)
+    val Blastoise = Pokemon("Blastoise", "Tortuga bombardera", Tipo("agua"), 350)
+    val Agumon = Pokemon("Agumon", "Reptiliano trotamundos", Tipo("tierra"), 300)
+    val Bulbasaur = Pokemon("Bulbasaur", "Planta infecciosa", Tipo("planta"), 200)
+    var lista_pokemons = arrayOf<Pokemon>(Charizard, Blastoise, Agumon, Bulbasaur)
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+    try{
+        println("Jugador 1, elige tu pokemon")
+        var eleccion= readLine().toString()
+        when(eleccion){
+            "Charizard"->
+        }
+    }
 }
