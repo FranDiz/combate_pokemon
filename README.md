@@ -1,5 +1,5 @@
 # Simulador de combate Pokemon      Proyecto  UTs 5 y 6                    
-*Realizado por Francisco Rodríguez Diz y Álvaro Ruiz Galvin*
+*Realizado por Francisco Rodríguez Diz y Álvaro Ruiz Galvin, de 1DAW B IES Rafael Alberti*
 ![pikachu](https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png)
 
 ### Este proyecto trata de simular un combate Pokemon entre 2 jugadores y con la posiblidad de elegir entre varios pokemons disponibles, cada uno con su selección única de ataques
