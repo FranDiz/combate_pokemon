@@ -8,10 +8,10 @@ class Pokemon (nombre:String, lore:String, tipo:Tipo, vida:Int, ataques:Array<At
     var lore=lore
     var tipo=tipo
     var vida=vida
+    var ataques = arrayOfNulls<Ataque>(4)
     init {
-
+        var ataques = this.ataques
     }
-    var ataques = arrayOf<Ataque>()
     // Esta función recibe un ataque y resta la vida del Pokemon de acuerdo a la efectividad del ataque
     fun recibirAtaque(ataque: Ataque) {
         // Primero, se usa el método comprobarEfectividad() de la clase Tipo para determinar la efectividad del ataque
