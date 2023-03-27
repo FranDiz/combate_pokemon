@@ -26,4 +26,7 @@ class Pokemon (nombre:String, lore:String, tipo:Tipo, vida:Int, ataques:Array<At
             else -> vida -= ataque.danio
         }
     }
+    fun estaVivo(): Boolean {
+        return vida > 0
+    }
 }

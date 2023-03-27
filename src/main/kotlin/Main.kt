@@ -1,22 +1,55 @@
+/**
+
+Clase principal que simula un combate Pokemon entre dos pokemons previamente creados.
+ */
 fun main(args: Array<String>) {
+// Creamos los dos pokemons que van a pelear
+        val pikachu = Pokemon("Pikachu", "Un Pokemon eléctrico muy conocido", Tipo("eléctrico"), 100, arrayOf(Ataque("Rayo", Tipo("eléctrico"), 20), Ataque("Impactrueno", Tipo("eléctrico"), 30), Ataque("Cola de hierro", Tipo("acero"), 10), Ataque("Bola voltio", Tipo("eléctrico"), 15)))
+        val charmander = Pokemon("Charmander", "Un Pokemon de fuego muy carismático", Tipo("fuego"), 100, arrayOf(Ataque("Lanzallamas", Tipo("fuego"), 25), Ataque("Ascuas", Tipo("fuego"), 20), Ataque("Golpe roca", Tipo("roca"), 15), Ataque("Arañazo", Tipo("normal"), 10)))
 
-    val impactrueno = Ataque("Impactrueno", Tipo("eléctrico"), 70)
-    val llamarada = Ataque("Llamarada", Tipo("fuego"), 80)
-    val cañon_agua = Ataque("Cañon de agua",Tipo("agua"), 60)
-    val placaje = Ataque("Placaje", Tipo("lucha"), 50)
-    val cola_ferrea = Ataque ("Cola férrea", Tipo("acero"), 70)
-    val terremoto = Ataque ("Terremoto", Tipo("tierra"), 90)
-    val latigo_cepa = Ataque("Látigo Cepa", Tipo("planta"), 80)
-    val puño = Ataque("Puñetazo", Tipo("lucha"), 100)
+// Mostramos la información de los dos pokemons
+        println("El primer pokemon es ${pikachu.nombre} (${pikachu.lore}), tipo ${pikachu.tipo.tipo} con ${pikachu.vida} puntos de vida.")
+        println("Este Pokemon conoce los siguientes ataques:")
+        for (ataque in pikachu.ataques) {
+            if (ataque != null) {
+                println("- ${ataque.nombre} (${ataque.tipo.tipo}) con un daño de ${ataque.danio} puntos.")
+            }
+        }
+        println()
+        println("El segundo pokemon es ${charmander.nombre} (${charmander.lore}), tipo ${charmander.tipo.tipo} con ${charmander.vida} puntos de vida.")
+        println("Este Pokemon conoce los siguientes ataques:")
+        for (ataque in charmander.ataques) {
+            if (ataque != null) {
+                println("- ${ataque.nombre} (${ataque.tipo.tipo}) con un daño de ${ataque.danio} puntos.")
+            }
+        }
+        println()
 
-    val charizard = Pokemon("Charmander", "Salamandra llameante", Tipo("fuego"),  300, arrayOf(impactrueno, llamarada, terremoto, cola_ferrea))
-    val blastoise = Pokemon("Blastoise", "Tortuga bombardera", Tipo("agua"), 350, arrayOf(cañon_agua, placaje, terremoto, puño))
-    val agumon = Pokemon("Agumon", "Reptiliano trotamundos", Tipo("tierra"), 300, arrayOf(puño, terremoto, llamarada, placaje))
-    val bulbasaur = Pokemon("Bulbasaur", "Planta infecciosa", Tipo("planta"), 250, arrayOf(latigo_cepa, impactrueno, terremoto, cola_ferrea))
-    val pikachu = Pokemon("Pikachu", "Rata eléctrica", Tipo("eléctrico"), 250, arrayOf(impactrueno, cola_ferrea, puño, placaje))
+// Empezamos el combate
+        var turno = 1
+        while (pikachu.estaVivo() && charmander.estaVivo()) {
+            println("Turno $turno:")
+// El primer pokemon ataca al segundo
+            println("${pikachu.nombre} ataca a ${charmander.nombre} con ${pikachu.ataques[0]!!.nombre}!")
+            charmander.recibirAtaque(pikachu.ataques[0]!!)
+            println("${charmander.nombre} tiene ${charmander.vida} puntos de vida.")
+// Si el segundo pokemon sigue vivo, ataca al primero
+            if (charmander.estaVivo()) {
+                println("${charmander.nombre} ataca a ${pikachu.nombre} con ${charmander.ataques[0]!!.nombre}!")
+                pikachu.recibirAtaque(charmander.ataques[0]!!)
+                println("${pikachu.nombre} tiene ${pikachu.vida} puntos de vida.")
+            }
+            println()
+            turno++
+        }
+
+// Mostramos el resultado del combate
+        if (pikachu.estaVivo()) {
+            println("${pikachu.nombre} ha ganado!")
+        } else {
+            println("${charmander.nombre}")
 
 
 
-
-
+}
 }
