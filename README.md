@@ -19,7 +19,7 @@
     - Clase Clases.Ataque: `class Clases.Ataque(nombre:String,tipo:Clases.Tipo,danio:Int)
       Contiene los parámetros del ataque
       
-    -Clase Clases.Jugador: `class Clases.Jugador (pokemon: Clases.Pokemon)`
+    - Clase Clases.Jugador: `class Clases.Jugador (pokemon: Clases.Pokemon)`
       En la clase jugador se almacena el pokemon que va a usar
       
-  -Main: Se hace la simulación del combate con 2 pokemons, pikachu y charmander, y muestra el desarrollo del combate.
+  - Main: Se hace la simulación del combate con 2 pokemons, pikachu y charmander, y muestra el desarrollo del combate.
