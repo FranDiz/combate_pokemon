@@ -3,12 +3,15 @@
  * @param tipo es de la clase Tipo
  */
 
-class Pokemon (nombre:String, lore:String, tipo:Tipo, vida:Int){
+class Pokemon (nombre:String, lore:String, tipo:Tipo, vida:Int, ataques:Array<Ataque>){
     var nombre=nombre
     var lore=lore
     var tipo=tipo
     var vida=vida
+    init {
 
+    }
+    var ataques = arrayOf<Ataque>()
     // Esta función recibe un ataque y resta la vida del Pokemon de acuerdo a la efectividad del ataque
     fun recibirAtaque(ataque: Ataque) {
         // Primero, se usa el método comprobarEfectividad() de la clase Tipo para determinar la efectividad del ataque
