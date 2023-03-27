@@ -1,3 +1,5 @@
+package Clases
+
 /**
  * CLASE ATAQUE: La clase ataque serán los ataques que tendrá cada pokemon.
  *               Los ataques tendrán los siguientes características:
@@ -6,7 +8,7 @@
  *               @param danio será la cantidad de daño que hace el ataque.
  *
  */
-class Ataque(nombre:String,tipo:Tipo,danio:Int) {
+class Ataque(nombre:String, tipo: Tipo, danio:Int) {
     var nombre=nombre
         get(){
             return field

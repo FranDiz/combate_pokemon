@@ -1,5 +1,7 @@
+package Clases
+
 /**
- * La clase Tipo almacenará un único atributo llamado @param tipo para
+ * La clase Clases.Tipo almacenará un único atributo llamado @param tipo para
  * usarse en las demás clases(pokemon y ataque) como un objeto independiente.
  */
 class Tipo(tipo:String) {
@@ -30,19 +32,19 @@ class Tipo(tipo:String) {
         "siniestro" to setOf("lucha", "bicho", "hada"),
         "acero" to setOf("fuego", "lucha", "tierra")
     )
-    // La función comprobarEfectividad() determina la efectividad de un ataque contra un tipo de Pokemon
+    // La función comprobarEfectividad() determina la efectividad de un ataque contra un tipo de Clases.Pokemon
     fun comprobarEfectividad(tipoAtaque: Tipo): String {
-        // Se utiliza el mapa de efectividades de la clase Tipo para obtener los tipos contra los que el ataque es efectivo
+        // Se utiliza el mapa de efectividades de la clase Clases.Tipo para obtener los tipos contra los que el ataque es efectivo
         val tiposEfectivos = efectividades[tipoAtaque.tipo]
-        // Si el tipo del Pokemon es efectivo contra el tipo del ataque, se devuelve "mitad" para indicar que el ataque es poco efectivo
+        // Si el tipo del Clases.Pokemon es efectivo contra el tipo del ataque, se devuelve "mitad" para indicar que el ataque es poco efectivo
         if (tiposEfectivos?.contains(tipo) == true) {
             return "mitad"
         }
-        // Si el tipo del Pokemon no es efectivo contra el tipo del ataque, se devuelve "doble" para indicar que el ataque es muy efectivo
+        // Si el tipo del Clases.Pokemon no es efectivo contra el tipo del ataque, se devuelve "doble" para indicar que el ataque es muy efectivo
         if (tiposEfectivos?.contains(tipo) == false) {
             return "doble"
         }
-        // Si el tipo del Pokemon no es ni efectivo ni no efectivo contra el tipo del ataque, se devuelve "normal" para indicar que el ataque no tiene efectividad especial
+        // Si el tipo del Clases.Pokemon no es ni efectivo ni no efectivo contra el tipo del ataque, se devuelve "normal" para indicar que el ataque no tiene efectividad especial
         return "normal"
     }
 }
