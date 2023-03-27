@@ -32,15 +32,15 @@ class Tipo(tipo:String) {
     )
     /**
      * Comprueba la efectividad de un ataque de cierto tipo contra un Pokémon de cierto tipo.
-     *
+     *vidad(tipoPokemon: String, tipoAtaque: String): Double {
+    val debilidades
      * @param tipoPokemon el tipo del Pokémon
      * @param tipoAtaque el tipo del ataque
      * @return un valor numérico que indica la efectividad del ataque. Si es 0, el ataque no tiene efecto;
      *         si es 0.5, el ataque es poco efectivo; si es 1, el ataque tiene efecto normal;
      *         si es 2, el ataque es super efectivo.
      */
-    fun verificarEfectividad(tipoPokemon: String, tipoAtaque: String): Double {
-        val debilidades = efectividades[tipoPokemon]?.intersect(efectividades[tipoAtaque] ?: emptySet())
+    fun verificarEfectividad = efectividades[tipoPokemon]?.intersect(efectividades[tipoAtaque] ?: emptySet())
         val fortalezas = efectividades[tipoPokemon]?.subtract(debilidades ?: emptySet())
         return when {
             debilidades?.isNotEmpty() == true -> 2.0 // el ataque es súper efectivo
@@ -48,4 +48,3 @@ class Tipo(tipo:String) {
             else -> 1.0 // el ataque tiene efecto normal
         }
     }
-}
