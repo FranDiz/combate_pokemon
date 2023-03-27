@@ -1,20 +1,21 @@
 class Pokemon (nombre:String, lore:String, tipo:Tipo, vida:Int){
     var nombre=nombre
-        get() {return field}
     var lore=lore
-        get() {return field}
     var tipo=tipo
-        get() {return field}
     var vida=vida
-        get() {return field}
+
+    // Esta función recibe un ataque y resta la vida del Pokemon de acuerdo a la efectividad del ataque
     fun recibirAtaque(ataque: Ataque) {
-        val efectividad = tipo.verificarEfectividad(tipo.tipo, ataque.tipo.tipo)
-        val danio = when {
-            efectividad == 0.0 -> 0 // el ataque no tiene efecto
-            efectividad == 0.5 -> ataque.danio / 2 // el ataque es poco efectivo
-            efectividad == 2.0 -> ataque.danio * 2 // el ataque es súper efectivo
-            else -> ataque.danio // el ataque tiene efecto normal
+        // Primero, se usa el método comprobarEfectividad() de la clase Tipo para determinar la efectividad del ataque
+        val efectividad = tipo.comprobarEfectividad(ataque.tipo)
+        // Luego, se usa un when para determinar cuánto daño restar a la vida del Pokemon según la efectividad
+        when (efectividad) {
+            // Si la efectividad es "doble", se resta el doble del daño del ataque
+            "doble" -> vida -= ataque.danio * 2
+            // Si la efectividad es "mitad", se resta la mitad del daño del ataque
+            "mitad" -> vida -= ataque.danio / 2
+            // Si la efectividad es "normal", se resta el daño del ataque tal cual
+            else -> vida -= ataque.danio
         }
-        vida -= danio
     }
 }

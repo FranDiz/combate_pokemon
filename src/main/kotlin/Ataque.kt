@@ -28,4 +28,5 @@ class Ataque(nombre:String,tipo:Tipo,danio:Int) {
         set(value){
             field=value
         }
+
 }

@@ -30,21 +30,19 @@ class Tipo(tipo:String) {
         "siniestro" to setOf("lucha", "bicho", "hada"),
         "acero" to setOf("fuego", "lucha", "tierra")
     )
-    /**
-     * Comprueba la efectividad de un ataque de cierto tipo contra un Pokémon de cierto tipo.
-     *vidad(tipoPokemon: String, tipoAtaque: String): Double {
-    val debilidades
-     * @param tipoPokemon el tipo del Pokémon
-     * @param tipoAtaque el tipo del ataque
-     * @return un valor numérico que indica la efectividad del ataque. Si es 0, el ataque no tiene efecto;
-     *         si es 0.5, el ataque es poco efectivo; si es 1, el ataque tiene efecto normal;
-     *         si es 2, el ataque es super efectivo.
-     */
-    fun verificarEfectividad = efectividades[tipoPokemon]?.intersect(efectividades[tipoAtaque] ?: emptySet())
-        val fortalezas = efectividades[tipoPokemon]?.subtract(debilidades ?: emptySet())
-        return when {
-            debilidades?.isNotEmpty() == true -> 2.0 // el ataque es súper efectivo
-            fortalezas?.isNotEmpty() == true -> 0.5 // el ataque es poco efectivo
-            else -> 1.0 // el ataque tiene efecto normal
+    // La función comprobarEfectividad() determina la efectividad de un ataque contra un tipo de Pokemon
+    fun comprobarEfectividad(tipoAtaque: Tipo): String {
+        // Se utiliza el mapa de efectividades de la clase Tipo para obtener los tipos contra los que el ataque es efectivo
+        val tiposEfectivos = efectividades[tipoAtaque.tipo]
+        // Si el tipo del Pokemon es efectivo contra el tipo del ataque, se devuelve "mitad" para indicar que el ataque es poco efectivo
+        if (tiposEfectivos?.contains(tipo) == true) {
+            return "mitad"
         }
+        // Si el tipo del Pokemon no es efectivo contra el tipo del ataque, se devuelve "doble" para indicar que el ataque es muy efectivo
+        if (tiposEfectivos?.contains(tipo) == false) {
+            return "doble"
+        }
+        // Si el tipo del Pokemon no es ni efectivo ni no efectivo contra el tipo del ataque, se devuelve "normal" para indicar que el ataque no tiene efectividad especial
+        return "normal"
     }
+}
